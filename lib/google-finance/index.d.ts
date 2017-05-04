@@ -1,4 +1,4 @@
-import { ChartRequestData, ChartResponseData, DataProvider, ScripMetaData, ScripsInfo } from '../DataProvider';
+import { ChartRequestData, ChartResponseData, DataProvider, ScripMetaData, ScripsInfo } from '../StockDataProvider';
 export declare class GoogleFinanceDataProvider implements DataProvider {
     static parseMeta(meta: any, line: any): void;
     sessionCreated(): Promise<boolean>;

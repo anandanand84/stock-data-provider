@@ -1,7 +1,7 @@
 {
   "name": "stock-data-provider",
   "description": "",
-  "main": "lib/google-finance/index.html",
+  "main": "google-finance.html",
   "authors": [
     "Anand Aravindan <anand.anand84@gmail.com> (traderslab.in)"
   ],
