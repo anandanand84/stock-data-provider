@@ -1,12 +1,12 @@
 {
   "name": "stock-data-provider",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "lib/google-finance/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "typings" : "src/StockDataProvider.ts",
+  "typings": "src/StockDataProvider.ts",
   "author": "Anand Aravindan <anand.anand84@gmail.com> (traderslab.in)",
   "license": "ISC",
   "devDependencies": {
