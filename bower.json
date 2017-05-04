@@ -1,0 +1,17 @@
+{
+  "name": "stock-data-provider",
+  "description": "",
+  "main": "lib/google-finance/index.html",
+  "authors": [
+    "Anand Aravindan <anand.anand84@gmail.com> (traderslab.in)"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

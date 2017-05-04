@@ -1,0 +1,26 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "emitDecoratorMetadata": true, 
+    "experimentalDecorators": true,
+    "lib": ["es2015", "es5", "dom", "es6"],
+    "module": "commonjs",
+    "target": "es2015",
+    "sourceMap": true,
+    "outDir":"lib/",
+    "noImplicitAny": false,
+    "declaration": true,
+    "typeRoots" : ["typings", "node_modules/**/@types"]
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+      "build",
+      "node_modules",
+      "bower_components",
+      "dist",
+      ".vscode",
+      "docs"
+  ]
+}
