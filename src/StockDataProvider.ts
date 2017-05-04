@@ -29,9 +29,23 @@ export interface ChartRequestData {
     startTime?: number
 }
 
+export interface SubscriptionRequest {
+    scrip: string
+    exchange: string,
+    subscribe: boolean
+}
+
+export interface SubscriptionResponse {
+    ltp: string
+    ltt: string,
+    volume: boolean
+}
+
 export interface DataProvider {
     sessionCreated: ()=>Promise<boolean>;
     getChartData:(request:ChartRequestData)=>Promise<ChartResponseData>
     getAvailableScrips:(key:string)=>Promise<ScripsInfo[]>
     getScripMetaData:(scrip:string)=>ScripMetaData
+    subscribeForScrips:(request:SubscriptionRequest, callback:(topic:string, SubscriptionResponse)=>void)=>string;
+    unSubscribeForScrips:(request:SubscriptionRequest, subscriptionId:string)=>string;
 }

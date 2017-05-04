@@ -1,9 +1,17 @@
-import { ChartRequestData, ChartResponseData, DataProvider, ScripMetaData, ScripsInfo } from '../StockDataProvider';
+import {
+    ChartRequestData,
+    ChartResponseData,
+    DataProvider,
+    ScripMetaData,
+    ScripsInfo,
+    SubscriptionRequest
+} from '../StockDataProvider';
 
 declare var global:any;
 
 let scripsMeta = new Map<string, ScripMetaData>();
 const GOOGLE_META_SIZE = 6
+const subscriptionId = 0;
 export class GoogleFinanceDataProvider implements DataProvider {
     static parseMeta (meta, line){
         if(line.startsWith("EXCHANGE")){
@@ -56,7 +64,7 @@ export class GoogleFinanceDataProvider implements DataProvider {
                         time = lastTime + (parseInt(quotelines[0]) * parsedMeta.Interval)
                         cumVolume = cumVolume + parseInt(quotelines[5]);
                     }
-                    chartResponse.timestamp.push(time)
+                    chartResponse.timestamp.push(time * 1000)
                     chartResponse.open.push(parseFloat(quotelines[4]))
                     chartResponse.high.push(parseFloat(quotelines[2]))
                     chartResponse.low.push(parseFloat(quotelines[3]))
@@ -89,6 +97,14 @@ export class GoogleFinanceDataProvider implements DataProvider {
             return results;
         }
         return null;
+    }
+
+    subscribeForScrips(request:SubscriptionRequest, callback) {
+        return (subscriptionId).toString();
+    }
+
+    unSubscribeForScrips(request:SubscriptionRequest, subscriptionId:string) {
+        return true;
     }
 
     getScripMetaData(scrip:string):ScripMetaData {
