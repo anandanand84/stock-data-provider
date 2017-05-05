@@ -38,6 +38,8 @@ export interface SubscriptionRequest {
 export interface SubscriptionResponse {
     ltp: string
     ltt: string,
+    scrip : string,
+    exchange : string
     volume: boolean
 }
 
@@ -46,6 +48,6 @@ export interface DataProvider {
     getChartData:(request:ChartRequestData)=>Promise<ChartResponseData>
     getAvailableScrips:(key:string)=>Promise<ScripsInfo[]>
     getScripMetaData:(scrip:string)=>ScripMetaData
-    subscribeForScrips:(request:SubscriptionRequest, callback:(topic:string, SubscriptionResponse)=>void)=>string;
+    subscribeForScrips:(request:SubscriptionRequest, callback:(topic:string, tick:SubscriptionResponse)=>void)=>string;
     unSubscribeForScrips:(request:SubscriptionRequest, subscriptionId:string)=>string;
 }
