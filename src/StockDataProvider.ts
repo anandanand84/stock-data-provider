@@ -40,7 +40,7 @@ export interface SubscriptionResponse {
     ltt: string,
     scrip : string,
     exchange : string
-    volume: boolean
+    volume: number
 }
 
 export interface DataProvider {
