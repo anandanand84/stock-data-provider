@@ -49,5 +49,5 @@ export interface DataProvider {
     getAvailableScrips:(key:string)=>Promise<ScripsInfo[]>
     getScripMetaData:(scrip:string)=>ScripMetaData
     subscribeForScrips:(request:SubscriptionRequest, callback:(topic:string, tick:SubscriptionResponse)=>void)=>string;
-    unSubscribeForScrips:(request:SubscriptionRequest, subscriptionId:string)=>string;
+    unSubscribeForScrips:(request:SubscriptionRequest, subscriptionId:string)=>boolean;
 }
