@@ -39,7 +39,7 @@ export class GoogleFinanceDataProvider implements DataProvider {
         //assuming 7 hrs / day = 420 minutes / day = 25200 sec / day
         // let requiredNoOfdays = Math.ceil((request.interval * requiredCount) / 25200); //Doesnt seem to work
         let requiredNoOfdays = 500;
-        var result = await fetch(`https://www.google.com/finance/getprices?q=${request.scrip}&i=${request.interval}&p=${requiredNoOfdays}d&f=d,o,h,l,c,v&ts=${request.startTime}`);
+        var result = await fetch(`https://crossorigin.me/https://www.google.com/finance/getprices?q=${request.scrip}&i=${request.interval}&p=${requiredNoOfdays}d&f=d,o,h,l,c,v&ts=${request.startTime}`);
         var responseText = await result.text();
         var lines = responseText.split('\n');
         var chartResponse:ChartResponseData = {
@@ -85,7 +85,7 @@ export class GoogleFinanceDataProvider implements DataProvider {
 
     async getAvailableScrips(key:string):Promise<ScripsInfo[]> {
         var results = new Array<ScripsInfo>();
-        var response = await fetch('https://www.google.com/finance/match?matchtype=matchall&q='+key);
+        var response = await fetch('https://crossorigin.me/https://www.google.com/finance/match?matchtype=matchall&q='+key);
         var resultJson = await response.json(); 
         if(resultJson.matches && resultJson.matches.length > 0) {
             resultJson.matches.forEach( info=> {
