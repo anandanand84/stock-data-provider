@@ -111,6 +111,19 @@ export class GoogleFinanceDataProvider implements DataProvider {
     getScripMetaData(scrip:string):ScripMetaData {
         return scripsMeta.get(scrip);
     }
+
+    async getQuote(scrip:string, exchange:string):Promise<QuoteResponse> {
+        var response = await fetch(`https://crossorigin.me/https://www.google.com/finance/info?q=${exchange}:${scrip}`)
+        var resultText = await response.text();
+        var quote = JSON.parse(resultText.trim().substr(2));
+        return {
+            scrip:quote[0].t,
+            volume:0,
+            ltt:0,
+            ltp:parseFloat(quote[0].l_fix),
+            prevClose:parseFloat(quote[0].pcls_fix)
+        }
+    }
 }
 
 global.DataProvider = new GoogleFinanceDataProvider();

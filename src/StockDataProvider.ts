@@ -43,6 +43,14 @@ export interface SubscriptionResponse {
     volume: number
 }
 
+export interface QuoteResponse {
+    scrip:string
+    volume:number
+    ltt:number
+    ltp:number
+    prevClose:number
+}
+
 export interface DataProvider {
     sessionCreated: ()=>Promise<boolean>;
     getChartData:(request:ChartRequestData)=>Promise<ChartResponseData>
@@ -50,4 +58,5 @@ export interface DataProvider {
     getScripMetaData:(scrip:string)=>ScripMetaData
     subscribeForScrips:(request:SubscriptionRequest, callback:(topic:string, tick:SubscriptionResponse)=>void)=>string;
     unSubscribeForScrips:(request:SubscriptionRequest, subscriptionId:string)=>boolean;
+    getQuote:(scrip:string, exchange:string)=>Promise<QuoteResponse>;
 }
