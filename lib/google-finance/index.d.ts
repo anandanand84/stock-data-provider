@@ -1,4 +1,4 @@
-import { ChartRequestData, ChartResponseData, DataProvider, ScripMetaData, ScripsInfo, SubscriptionRequest } from '../StockDataProvider';
+import { ChartRequestData, ChartResponseData, DataProvider, QuoteResponse, ScripMetaData, ScripsInfo, SubscriptionRequest } from '../StockDataProvider';
 export declare class GoogleFinanceDataProvider implements DataProvider {
     static parseMeta(meta: any, line: any): void;
     sessionCreated(): Promise<boolean>;
@@ -7,4 +7,5 @@ export declare class GoogleFinanceDataProvider implements DataProvider {
     subscribeForScrips(request: SubscriptionRequest, callback: any): string;
     unSubscribeForScrips(request: SubscriptionRequest, subscriptionId: string): boolean;
     getScripMetaData(scrip: string): ScripMetaData;
+    getQuote(scrip: string, exchange: string): Promise<QuoteResponse>;
 }
