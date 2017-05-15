@@ -1,6 +1,6 @@
 {
   "name": "stock-data-provider",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "",
   "main": "lib/google-finance/browser.js",
   "scripts": {
