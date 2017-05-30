@@ -3,6 +3,9 @@ export interface ScripMetaData {
     close: number;
     exchange: string;
     timezoneOffset: number;
+    lotSize: number;
+    tickSize: number;
+    tradeable: boolean;
 }
 export interface ChartResponseData {
     scrip: string;

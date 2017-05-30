@@ -78,7 +78,10 @@ export class GoogleFinanceDataProvider implements DataProvider {
                 timezoneOffset : parsedMeta.TimeZoneOffset,
                 open : parsedMeta.OpenMinute,
                 close : parsedMeta.CloseMinute,
-                exchange : parsedMeta.Exchange
+                exchange : parsedMeta.Exchange,
+                tradeable : true,
+                lotSize : 1,
+                tickSize : 0.05
             }
             scripsMeta.set(request.scrip, meta);
             return chartResponse;
