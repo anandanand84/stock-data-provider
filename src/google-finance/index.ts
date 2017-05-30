@@ -39,7 +39,9 @@ export class GoogleFinanceDataProvider implements DataProvider {
         let requiredCount = request.requiredBars;
         //assuming 7 hrs / day = 420 minutes / day = 25200 sec / day
         // let requiredNoOfdays = Math.ceil((request.interval * requiredCount) / 25200); //Doesnt seem to work
-        let requiredNoOfdays = 500;
+        let requiredNoOfdays = 10;
+        if(request.interval >= 86400)
+            requiredNoOfdays = 300;
         var result = await fetch(`https://data.traderslab.in/getprices?q=${request.scrip}&i=${request.interval}&p=${requiredNoOfdays}d&f=d,o,h,l,c,v&ts=${request.startTime}`);
         var responseText = await result.text();
         var lines = responseText.split('\n');
